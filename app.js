@@ -37,7 +37,6 @@ function findBC(x, y, z) {
     return result;
 }
 
-
 isString(['X', 'Y', '5', '9', '23', 'Z', "", null, undefined, 0]);
 
 A = 21
