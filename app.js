@@ -47,15 +47,19 @@ findBC(A, A_B, A_C)
 
 // centralWorldLocation = 13.7466304,100.5393351
 try {
-    url = `https://maps.googleapis.com/maps/api/directions/json?origin=Toronto&destination=Montreal&key=AIzaSyCrs4tHo0EfCYFaZ08FHvmNQYVMgF3RqBA`
+    url = `https://mas.googleapis.com/maps/api/directions/json?origin=Toronto&destination=Montreal&key=AIzaSyCrs4tHo0EfCYFaZ08FHvmNQYVMgF3RqBA`
     const request = https.get(url, response => {
         let body = "";
         response.on('data', data => {
             body += data.toString()
         });
         response.on('end', () => {
-            const locations = JSON.parse(body);
-            console.dir(locations.routes.legs);
+            try {
+                const locations = JSON.parse(body);
+                console.dir(locations.routes.legs);
+            } catch (error) {
+                console.error(error.message);
+            }
         });
     });
 
