@@ -48,6 +48,9 @@ findBC(A, A_B, A_C)
 centralWorldLocation = 13.7466304,100.5393351
 url = `https://maps.googleapis.com/maps/api/directions/json?origin=Toronto&destination=Montreal&key=${API_KEY}`
 https.get(url, response =>{
-    console.log(response.statusCode);
-    console.dir(response);
+    // console.log(response.statusCode);
+    // console.dir(response);
+    response.on('data', data => {
+        console.log(data)
+    });
 })
