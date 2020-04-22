@@ -4,7 +4,7 @@ const http = require('http');
 const API_KEY = 'AIzaSyCrs4tHo0EfCYFaZ08FHvmNQYVMgF3RqBA';
 
 function getDirection() {
-    console.log("Please Say Something");
+    console.log("Sending request to direction");
     try {
         const url = `https://maps.googleapis.com/maps/api/directions/json?origin=Toronto&destination=Montreal&key=AIzaSyCrs4tHo0EfCYFaZ08FHvmNQYVMgF3RqBA`
         const request = https.get(url, response => {
@@ -16,7 +16,7 @@ function getDirection() {
                 response.on('end', () => {
                     try {
                         const locations = JSON.parse(body);
-                        console.dir(locations.routes);
+                        console.dir(locations.routes[0].legs[0]);
                         return locations;
                     } catch (error) {
                         console.error(`Cannot parse json object: ${error.message}`);
