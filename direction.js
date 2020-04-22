@@ -35,5 +35,4 @@ function getDirection() {
     }
 }
 
-module.exports.get = getDirection();
-console.log("What Happen ");
+module.exports.getDirection = getDirection;
