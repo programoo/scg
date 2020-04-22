@@ -1,4 +1,4 @@
-function isString(characters, target) {
+function isString(characters) {
     characters.forEach(character => {
         if (isNaN(character) && typeof (character) !== 'undefined' && character.length == 1) {
             console.log(character);
