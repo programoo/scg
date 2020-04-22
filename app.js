@@ -23,9 +23,6 @@ function isString(characters, target) {
     })
 }
 
-isString(['X', 'Y', '5', '9', '23', 'Z', "", null, undefined, 0]);
-
-
 function findBC(x, y, z){
     const B = y - x;
     const C = z - x;
@@ -36,6 +33,8 @@ function findBC(x, y, z){
     return result;
 }
 
+
+isString(['X', 'Y', '5', '9', '23', 'Z', "", null, undefined, 0]);
 
 A = 21
 A_B = 23
