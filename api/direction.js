@@ -6,7 +6,6 @@ sourceLat = 13.8058793
 sourceLng = 100.5375317
 destinationLat = 13.7466304
 destinationLng = 100.5393351
-// centralWorldLocation = 13.7466304,100.5393351
 const sourceText = 'The+Siam+Cement+Public+Company+Limited'
 const destinationText = 'centralwOrld'
 
@@ -24,7 +23,9 @@ function getDirection(mode) {
                 response.on('end', () => {
                     try {
                         const locations = JSON.parse(body);
-                        console.dir(locations.routes[0].legs[0].steps.length);
+                        // console.dir(locations.routes[0].legs[0].steps.length);
+
+                        console.log(`mode=${mode}, ${locations.routes[0].legs[0].duration.text}`);
                         return locations;
                     } catch (error) {
                         console.error(`Cannot parse json object: ${error.message}`);

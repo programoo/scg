@@ -14,4 +14,9 @@ const xyz = require('./calculation/xyz');
 //
 // const xyzResult = xyz.isString(['X', 'Y', '5', '9', '23', 'Z', "", null, undefined, 0]);
 
-direction.getDirection('transit')
+const modes = ['transit', 'driving', 'walking', 'bicycling'];
+
+modes.forEach(mode => {
+    console.log(mode);
+    direction.getDirection(mode)
+});
