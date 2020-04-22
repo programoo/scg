@@ -1,4 +1,6 @@
 const express = require('express');
+const https = require('https');
+const API_KEY = 'AIzaSyCrs4tHo0EfCYFaZ08FHvmNQYVMgF3RqBA';
 
 const app = express();
 app.listen(3000);
@@ -40,3 +42,12 @@ A = 21
 A_B = 23
 A_C = -21
 findBC(A, A_B, A_C)
+
+// Call API
+
+centralWorldLocation = 13.7466304,100.5393351
+url = `https://maps.googleapis.com/maps/api/directions/json?origin=Toronto&destination=Montreal&key=${API_KEY}`
+https.get(url, response =>{
+    console.log(response.statusCode);
+    console.dir(response);
+})
