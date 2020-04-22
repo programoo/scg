@@ -14,4 +14,4 @@ const xyz = require('./calculation/xyz');
 //
 // const xyzResult = xyz.isString(['X', 'Y', '5', '9', '23', 'Z', "", null, undefined, 0]);
 
-direction.getDirection()
+direction.getDirection('transit')

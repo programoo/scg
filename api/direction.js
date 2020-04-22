@@ -10,9 +10,9 @@ destinationLng = 100.5393351
 const sourceText = 'The+Siam+Cement+Public+Company+Limited'
 const destinationText = 'centralwOrld'
 
-function getDirection() {
+function getDirection(mode) {
     try {
-        const url = `https://maps.googleapis.com/maps/api/directions/json?origin=${sourceLat},${sourceLng}&destination=${destinationLat},${destinationLng}&key=${'AIzaSyCrs4tHo0EfCYFaZ08FHvmNQYVMgF3RqBA'}`
+        const url = `https://maps.googleapis.com/maps/api/directions/json?mode=${mode}&origin=${sourceLat},${sourceLng}&destination=${destinationLat},${destinationLng}&key=${'AIzaSyCrs4tHo0EfCYFaZ08FHvmNQYVMgF3RqBA'}`
         console.log(`Requesting: ${url}`);
 
         const request = https.get(url, response => {
