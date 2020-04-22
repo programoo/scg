@@ -1,12 +1,11 @@
 // centralWorldLocation = 13.7466304,100.5393351
 const https = require('https');
 const http = require('http');
-const API_KEY = 'AIzaSyCrs4tHo0EfCYFaZ08FHvmNQYVMgF3RqBA';
 
 function getDirection() {
     console.log("Sending request to direction");
     try {
-        const url = `https://maps.googleapis.com/maps/api/directions/json?origin=Toronto&destination=Montreal&key=AIzaSyCrs4tHo0EfCYFaZ08FHvmNQYVMgF3RqBA`
+        const url = `https://maps.googleapis.com/maps/api/directions/json?origin=Toronto&destination=Montreal&key=${'AIzaSyCrs4tHo0EfCYFaZ08FHvmNQYVMgF3RqBA'}`
         const request = https.get(url, response => {
             if (response.statusCode === 200) {
                 let body = "";
