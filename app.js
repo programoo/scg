@@ -19,13 +19,13 @@ printMessage("chalkers", 100, 20000000);
 
 function isString(characters, target) {
     characters.forEach(character => {
-        if (isNaN(character) && typeof(character) !== 'undefined' && character.length == 1) {
+        if (isNaN(character) && typeof (character) !== 'undefined' && character.length == 1) {
             console.log(character);
         }
     })
 }
 
-function findBC(x, y, z){
+function findBC(x, y, z) {
     const B = y - x;
     const C = z - x;
     const result = {B: B, C: C}
@@ -45,12 +45,22 @@ findBC(A, A_B, A_C)
 
 // Call API
 
-centralWorldLocation = 13.7466304,100.5393351
-url = `https://maps.googleapis.com/maps/api/directions/json?origin=Toronto&destination=Montreal&key=${API_KEY}`
-https.get(url, response =>{
+// centralWorldLocation = 13.7466304,100.5393351
+url = `https://maps.googleapis.com/maps/api/directions/json?origin=Toronto&destination=Montreal&key=AIzaSyCrs4tHo0EfCYFaZ08FHvmNQYVMgF3RqBA`
+const request = https.get(url, response => {
+    let body = "";
     // console.log(response.statusCode);
     // console.dir(response);
     response.on('data', data => {
-        console.log(data)
+        body += data.toString()
+        //console.log(data.toString());
     });
-})
+    response.on('end', () => {
+        //console.log(body);
+        //console.log(typeof body);
+        const locations = JSON.parse(body);
+        console.dir(locations.routes.legs);
+    });
+});
+
+request.on('error', error => console.error(`Problem with request: ${error.message}`))
