@@ -1,11 +1,20 @@
-// centralWorldLocation = 13.7466304,100.5393351
 const https = require('https');
 const http = require('http');
 
+// SCG location = 13.8058793, 100.5375317
+sourceLat = 13.8058793
+sourceLng = 100.5375317
+destinationLat = 13.7466304
+destinationLng = 100.5393351
+// centralWorldLocation = 13.7466304,100.5393351
+const sourceText = 'The+Siam+Cement+Public+Company+Limited'
+const destinationText = 'centralwOrld'
+
 function getDirection() {
-    console.log("Sending request to direction");
     try {
-        const url = `https://maps.googleapis.com/maps/api/directions/json?origin=Toronto&destination=Montreal&key=${'AIzaSyCrs4tHo0EfCYFaZ08FHvmNQYVMgF3RqBA'}`
+        const url = `https://maps.googleapis.com/maps/api/directions/json?origin=${sourceLat},${sourceLng}&destination=${destinationLat},${destinationLng}&key=${'AIzaSyCrs4tHo0EfCYFaZ08FHvmNQYVMgF3RqBA'}`
+        console.log(`Requesting: ${url}`);
+
         const request = https.get(url, response => {
             if (response.statusCode === 200) {
                 let body = "";
@@ -15,7 +24,7 @@ function getDirection() {
                 response.on('end', () => {
                     try {
                         const locations = JSON.parse(body);
-                        console.dir(locations.routes[0].legs[0]);
+                        console.dir(locations.routes[0].legs[0].steps.length);
                         return locations;
                     } catch (error) {
                         console.error(`Cannot parse json object: ${error.message}`);
