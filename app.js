@@ -2,9 +2,9 @@
 //const app = express();
 //app.listen(3000);
 
-const direction = require('./direction');
-const abc = require('./abc');
-const xyz = require('./xyz');
+const direction = require('./api/direction');
+const abc = require('./calculation/abc');
+const xyz = require('./calculation/xyz');
 
 A = 21
 A_B = 23
