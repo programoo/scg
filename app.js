@@ -15,13 +15,13 @@ function printMessage(username, badgeCount, point) {
 printMessage("chalkers", 100, 20000000);
 
 
-function isString(characters) {
+function isString(characters, target) {
     characters.forEach(character => {
-        if (isNaN(character) && character.length == 1) {
+        if (isNaN(character) && typeof(character) !== 'undefined' && character.length == 1) {
             console.log(character);
         }
     })
 }
 
+isString(['X', 'Y', '5', '9', '23', 'Z', "", null, undefined, 0]);
 
-isString(['X', 'Y', '5', '9', null, '23', 'Z', ""])
