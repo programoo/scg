@@ -1,6 +1,37 @@
-//const express = require('express');
-//const app = express();
-//app.listen(3000);
+const express = require('express');
+const app = express();
+
+app.get('/', (request, response) =>{
+    response.send("I LOVE CODING");
+})
+
+
+app.listen(3000);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 const direction = require('./api/direction');
 const abc = require('./calculation/abc');
