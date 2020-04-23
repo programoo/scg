@@ -1,6 +1,14 @@
 const express = require('express');
 
 const app = express();
+const colors = [
+    'red',
+    'orange',
+    'yellow',
+    'green',
+    'blue',
+    'purple'
+];
 
 app.set('view engine', 'pug');
 
@@ -15,7 +23,8 @@ app.get('/hello', (req, res) => {
 app.get('/directions', (req, res) => {
     res.render('directions', {
         prompt: "Who is barried in ground tombee?",
-        hint: "This about who is this ?"
+        hint: "This about who is this ?",
+        colors: colors
     });
 })
 

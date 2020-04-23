@@ -6,6 +6,9 @@ html(lang="en")
         header
             h1 The best way to commute
         section#content
+            ul
+                each color in colors
+                    li= color
             h2 #{prompt}
             if hint
                 p
