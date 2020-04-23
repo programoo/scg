@@ -1,8 +1,8 @@
 const express = require('express');
 const app = express();
 
-app.get('/', (request, response) =>{
-    response.send("I LOVE CODING");
+app.get('/', (req, res) =>{
+    res.send("<h1>I LOVE CODING</h1>");
 })
 
 
