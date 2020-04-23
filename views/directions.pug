@@ -7,7 +7,12 @@ html(lang="en")
             h1 The best way to commute
         section#content
             h2 #{prompt}
-            p
-                i Hint: #{hint}
-        footer
+            if hint
+                p
+                    i Hint: #{hint}
+            else
+                p
+                    i Hint: There is no hint
+
+    footer
 
