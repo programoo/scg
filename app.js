@@ -24,7 +24,8 @@ app.get('/directions', (req, res) => {
     res.render('directions', {
         prompt: "Who is barried in ground tombee?",
         hint: "This about who is this ?",
-        colors: colors
+        colors: colors,
+        cache: true
     });
 })
 
