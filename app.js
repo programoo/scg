@@ -4,43 +4,24 @@ const app = express();
 
 app.set('view engine', 'pug');
 
-app.get('/', (req, res) =>{
-    //res.send("<h1>I LOVE CODING</h1>");
+app.get('/', (req, res) => {
     res.render('index');
 })
 
-app.get('/hello', (req, res) =>{
+app.get('/hello', (req, res) => {
     res.send("<h1>Hello Javascript Developer</h1>");
 })
 
+app.get('/directions', (req, res) => {
+    res.render('directions', {
+        prompt: "Who is barried in ground tombee?",
+        hint: "This about who is this ?"
+    });
+})
 
-app.listen(3000, () =>{
+app.listen(3000, () => {
     console.log('The application is running on localhost:3000');
-} );
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+});
 
 
 // const direction = require('./api/direction');
