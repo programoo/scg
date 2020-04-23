@@ -1,12 +1,22 @@
 const express = require('express');
+
 const app = express();
 
+app.set('view engine', 'pug');
+
 app.get('/', (req, res) =>{
-    res.send("<h1>I LOVE CODING</h1>");
+    //res.send("<h1>I LOVE CODING</h1>");
+    res.render('index');
+})
+
+app.get('/hello', (req, res) =>{
+    res.send("<h1>Hello Javascript Developer</h1>");
 })
 
 
-app.listen(3000);
+app.listen(3000, () =>{
+    console.log('The application is running on localhost:3000');
+} );
 
 
 
@@ -33,9 +43,9 @@ app.listen(3000);
 
 
 
-const direction = require('./api/direction');
-const abc = require('./calculation/abc');
-const xyz = require('./calculation/xyz');
+// const direction = require('./api/direction');
+// const abc = require('./calculation/abc');
+// const xyz = require('./calculation/xyz');
 
 // A = 21
 // A_B = 23
@@ -45,9 +55,9 @@ const xyz = require('./calculation/xyz');
 //
 // const xyzResult = xyz.isString(['X', 'Y', '5', '9', '23', 'Z', "", null, undefined, 0]);
 
-const modes = ['transit', 'driving', 'walking', 'bicycling'];
-
-modes.forEach(mode => {
-    console.log(mode);
-    direction.getDirection(mode)
-});
+// const modes = ['transit', 'driving', 'walking', 'bicycling'];
+//
+// modes.forEach(mode => {
+//     console.log(mode);
+//     direction.getDirection(mode)
+// });
