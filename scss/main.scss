@@ -1,4 +1,7 @@
 body {
   background: black;
-  background-color: blue;
+  background-color: lightcoral;
+
+  @import 'header';
 }
+
