@@ -56,6 +56,18 @@ app.post('/line_messages', (req, res) => {
         try {
             console.dir(postBody)
             const messageBody = JSON.parse(postBody);
+            const textMessage = messageBody.events[0].message.text;
+
+            if(textMessage.toLowerCase() === "hello".toLowerCase()){
+                console.log("Hi, I am an innocent robot. Nice to meet you");
+            }
+            else if ( (textMessage.toLowerCase() === "GoodBye".toLowerCase()) ){
+                console.log("Why you are so hurry? Anyway, take care of yourself.");
+            }
+            else{
+                console.log("I have a very limited answer, Could you try saying Hello or GoodBye instead ?")
+            }
+
             console.log(`${ messageBody.events[0].message.text }`)
         } catch (error) {
             console.error(`Cannot parse json object: ${error.message}`);
