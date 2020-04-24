@@ -13,14 +13,9 @@ const colors = [
     'purple'
 ];
 
-
 app.set('view engine', 'pug');
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
-
-
-
-
 
 app.get('/', (req, res) => {
     res.render('index');
@@ -41,11 +36,26 @@ app.get('/directions', (req, res) => {
 
 const channel_excess_token = 'gKhGxHBRkyngeOe337T2dGxAeTpzAdF1N0xyHxRnJB6RIm9ZcTbsOiweAnzQQWiNeikIToTnasPc60IQu5tpxPNvnIweF5wMCYjCoEoWyWwrXowmVOAYx/l5BN4/NaEO0u43MMQw29F9lpkSG0NljgdB04t89/1O/w1cDnyilFU='
 
-
 app.post('/webhook', (req, res) => {
     let reply_token = req.body.events[0].replyToken
     let msg = req.body.events[0].message.text
-    reply(reply_token, msg)
+
+
+    if (msg.toLowerCase() === "hello".toLowerCase()) {
+        console.log("Hi, I am an innocent robot. Nice to meet you.");
+        reply(reply_token, "Hi, I am an innocent robot. Nice to meet you.")
+    } else if ((msg.toLowerCase() === "Good Bye".toLowerCase())) {
+        console.log("Why you are so hurry? Anyway, take care of yourself.");
+        reply(reply_token, "Take care of yourself.")
+    } else {
+        const errorMessage = "It seems our bot cannot answer your question. Could you please try sending Hello or Good bye instead?"
+        setTimeout(() => {
+            reply(reply_token, "Why you are so hurry? Anyway, take care of yourself.")
+            console.error(errorMessage)
+        }, 5000);
+        console.log()
+    }
+
     res.sendStatus(200)
 })
 
@@ -108,7 +118,7 @@ app.post('/line_messages', (req, res) => {
             } else {
                 const errorMessage = "It seems our bot cannot answer your question. Could you please try sending Hello or Good bye instead?"
 
-                setTimeout(() => console.error( errorMessage ), 5000);
+                setTimeout(() => console.error(errorMessage), 5000);
                 console.log()
             }
 
@@ -131,7 +141,6 @@ app.get('/line_messages', (req, res) => {
 app.listen(3000, () => {
     console.log('The application is running on localhost:3000');
 });
-
 
 // const direction = require('./api/direction');
 // const abc = require('./calculation/abc');
