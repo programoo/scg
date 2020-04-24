@@ -1,0 +1,16 @@
+extends layout.pug
+
+block content
+    section#content
+        h2 The best way to commute
+        ul
+            each color in colors
+                li= color
+        h2 #{prompt}
+        if hint
+            p
+                i Hint: #{hint}
+        else
+            p
+                i Hint: There is no hint
+
