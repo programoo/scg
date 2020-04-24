@@ -1,8 +1,13 @@
 body {
-    background: black;
-    background-color: lightcoral;
-}
-
-body header h1 {
-    color: aqua;
-}
+  background: black;
+  background-color: lightcoral; }
+  body footer {
+    text-align: center;
+    background: darkred; }
+    body footer h1 {
+      color: aqua; }
+  body header {
+    text-align: center;
+    background: darkred; }
+    body header h1 {
+      color: aqua; }
