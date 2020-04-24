@@ -29,6 +29,18 @@ app.get('/directions', (req, res) => {
     });
 })
 
+app.post('/line_messages', (req, res) => {
+    console.log("I saw line message here on POST");
+
+    res.send("<h1>Hello Line Messaging Developer</h1>");
+})
+
+app.get('/line_messages', (req, res) => {
+    console.log("I saw line message here on GET");
+
+    res.send("<h1>Hello Line Messaging Developer</h1>");
+})
+
 app.listen(3000, () => {
     console.log('The application is running on localhost:3000');
 });
