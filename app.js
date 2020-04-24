@@ -46,6 +46,9 @@ app.get('/webhook', (req, res) => {
 app.post('/webhook', (req, res) => {
     console.log("Hi");
     let reply_token = req.body.events[0].replyToken
+    let userId = req.body.events[0].source.userId;
+
+    console.log(`UserId ${userId}`);
 
     try {
 
@@ -59,24 +62,47 @@ app.post('/webhook', (req, res) => {
             const message = "Take care of yourself.";
             reply(reply_token, message);
         } else {
-            sendError(reply_token);
+            sendError(userId);
             res.sendStatus(200);
         }
     } catch (error) {
         console.error(`Cannot parse json object: ${error.message}`);
-        sendError(reply_token);
+        sendError(userId);
         res.sendStatus(200)
     }
 })
 
-function sendError(reply_token) {
+function sendError(userId) {
     const errorMessage = "It seems our bot cannot answer your question. Could you please try sending Hello or Good bye instead?"
     setTimeout(() => {
-        if (typeof reply_token === 'string') {
-            reply(reply_token, errorMessage)
+        if (typeof userId === 'string') {
+            pushMessage(userId, errorMessage)
         }
         console.error(errorMessage)
     }, 5000);
+}
+
+function pushMessage(userId, msg) {
+    let headers = {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${channel_excess_token}`
+    }
+
+    let body = JSON.stringify({
+        to: [userId],
+        messages: [{
+            type: 'text',
+            text: msg
+        }]
+    })
+
+    request.post({
+        url: 'https://api.line.me/v2/bot/message/multicast',
+        headers: headers,
+        body: body
+    }, (err, res, body) => {
+        console.log('status = ' + res.statusCode);
+    });
 }
 
 function reply(reply_token, msg) {
