@@ -30,7 +30,7 @@ app.get('/hello', (req, res) => {
 })
 
 app.get('/directions', (req, res) => {
-    res.render('directions', {
+    res.render('directions/index', {
         prompt: "Who is barried in ground tombee?",
         hint: "This about who is this ?",
         colors: colors,
