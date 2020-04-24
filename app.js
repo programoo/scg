@@ -60,22 +60,22 @@ app.post('/line_messages', (req, res) => {
             const replyToken = messageBody.events[0].replyToken;
             console.log(`ReplyToken: ${replyToken}`);
 
-            if(textMessage.toLowerCase() === "hello".toLowerCase()){
-                console.log("Hi, I am an innocent robot. Nice to meet you");
-            }
-            else if ( (textMessage.toLowerCase() === "GoodBye".toLowerCase()) ){
+            if (textMessage.toLowerCase() === "hello".toLowerCase()) {
+                console.log("Hi, I am an innocent robot. Nice to meet you.");
+            } else if ((textMessage.toLowerCase() === "Good Bye".toLowerCase())) {
                 console.log("Why you are so hurry? Anyway, take care of yourself.");
-            }
-            else{
-                console.log("I have a very limited answer, Could you try saying Hello or GoodBye instead ?")
+            } else {
+                const errorMessage = "It seems our bot cannot answer your question. Could you please try sending Hello or Good bye instead?"
+
+                setTimeout(() => console.error( errorMessage ), 5000);
+                console.log()
             }
 
-            console.log(`${ messageBody.events[0].message.text }`)
+            console.log(`${messageBody.events[0].message.text}`)
         } catch (error) {
             console.error(`Cannot parse json object: ${error.message}`);
         }
     });
-
 
     console.log("I saw line message here on POST");
     res.send("<h1>Hello Line Messaging Developer</h1>");
