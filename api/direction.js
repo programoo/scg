@@ -9,7 +9,7 @@ destinationLng = 100.5393351
 const sourceText = 'The+Siam+Cement+Public+Company+Limited'
 const destinationText = 'centralwOrld'
 
-function getDirection(mode) {
+function getDirection(mode, res) {
     try {
         const url = `https://maps.googleapis.com/maps/api/directions/json?mode=${mode}&origin=${sourceLat},${sourceLng}&destination=${destinationLat},${destinationLng}&key=${'AIzaSyCrs4tHo0EfCYFaZ08FHvmNQYVMgF3RqBA'}`
         console.log(`Requesting: ${url}`);
@@ -26,7 +26,19 @@ function getDirection(mode) {
                         // console.dir(locations.routes[0].legs[0].steps.length);
 
                         console.log(`mode=${mode}, ${locations.routes[0].legs[0].duration.text}`);
-                        return locations;
+                        console.log("Done");
+                        steps = locations.routes[0].legs[0].steps
+                        console.dir(locations.routes[0].legs[0].steps);
+
+                        res.render('directions/index', {
+                            prompt: "Who is barried in ground tombee?",
+                            hint: "This about who is this ?",
+                            colors: steps,
+                            cache: true
+                        });
+
+
+                        return "SOmeThing"; //locations.routes[0].legs[0].step;
                     } catch (error) {
                         console.error(`Cannot parse json object: ${error.message}`);
                     }

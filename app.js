@@ -31,20 +31,9 @@ app.get('/hello', (req, res) => {
 })
 
 app.get('/directions', (req, res) => {
-    const modes = ['transit', 'driving', 'walking'];
-
-    modes.forEach(mode => {
-        console.log(mode);
-        direction.getDirection(mode)
-    });
-
-
-    res.render('directions/index', {
-        prompt: "Who is barried in ground tombee?",
-        hint: "This about who is this ?",
-        colors: colors,
-        cache: true
-    });
+    const modes = ['driving']//['transit', 'driving', 'walking'];
+    const steps = direction.getDirection('driving', res) // null;
+    console.dir(`STEP: ${steps}`)
 })
 
 const channel_excess_token = 'gKhGxHBRkyngeOe337T2dGxAeTpzAdF1N0xyHxRnJB6RIm9ZcTbsOiweAnzQQWiNeikIToTnasPc60IQu5tpxPNvnIweF5wMCYjCoEoWyWwrXowmVOAYx/l5BN4/NaEO0u43MMQw29F9lpkSG0NljgdB04t89/1O/w1cDnyilFU='
