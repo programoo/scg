@@ -128,62 +128,6 @@ function reply(reply_token, msg) {
     });
 }
 
-app.post('/line_messages', (req, res) => {
-    const xLineSignature = req.rawHeaders[1]
-    //console.dir(req.rawHeaders[1])
-    //console.dir(req)
-    console.log(req.body)
-    //console.dir(req.body)
-
-    const crypto = require('crypto');
-    const channelSecret = 'gKhGxHBRkyngeOe337T2dGxAeTpzAdF1N0xyHxRnJB6RIm9ZcTbsOiweAnzQQWiNeikIToTnasPc60IQu5tpxPNvnIweF5wMCYjCoEoWyWwrXowmVOAYx/l5BN4/NaEO0u43MMQw29F9lpkSG0NljgdB04t89/1O/w1cDnyilFU='; // Channel secret string
-    const body = '...'; // Request body string
-    const signature = crypto
-        .createHmac('SHA256', channelSecret)
-        .update(body).digest('base64');
-
-    const https = require('https');
-    const http = require('http');
-
-    let postBody = "";
-    req.on('data', data => {
-        postBody += data.toString()
-    });
-    req.on('end', () => {
-        try {
-            console.dir(postBody)
-            const messageBody = JSON.parse(postBody);
-            const textMessage = messageBody.events[0].message.text;
-            const replyToken = messageBody.events[0].replyToken;
-            console.log(`ReplyToken: ${replyToken}`);
-
-            if (textMessage.toLowerCase() === "hello".toLowerCase()) {
-                console.log("Hi, I am an innocent robot. Nice to meet you.");
-            } else if ((textMessage.toLowerCase() === "Good Bye".toLowerCase())) {
-                console.log("Why you are so hurry? Anyway, take care of yourself.");
-            } else {
-                const errorMessage = "It seems our bot cannot answer your question. Could you please try sending Hello or Good bye instead?"
-
-                setTimeout(() => console.error(errorMessage), 5000);
-                console.log()
-            }
-
-            console.log(`${messageBody.events[0].message.text}`)
-        } catch (error) {
-            console.error(`Cannot parse json object: ${error.message}`);
-        }
-    });
-
-    console.log("I saw line message here on POST");
-    res.send("<h1>Hello Line Messaging Developer</h1>");
-})
-
-app.get('/line_messages', (req, res) => {
-    console.log("I saw line message here on GET");
-
-    res.send("<h1>Hello Line Messaging Developer</h1>");
-})
-
 app.listen(3000, () => {
     console.log('The application is running on localhost:3000');
 });
