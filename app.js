@@ -36,26 +36,39 @@ app.get('/directions', (req, res) => {
 
 const channel_excess_token = 'gKhGxHBRkyngeOe337T2dGxAeTpzAdF1N0xyHxRnJB6RIm9ZcTbsOiweAnzQQWiNeikIToTnasPc60IQu5tpxPNvnIweF5wMCYjCoEoWyWwrXowmVOAYx/l5BN4/NaEO0u43MMQw29F9lpkSG0NljgdB04t89/1O/w1cDnyilFU='
 
+
+app.get('/webhook', (req, res) => {
+    console.log("I saw line message here on GET");
+
+    res.send("<h1>Hello Line Messaging Developer</h1>");
+})
+
 app.post('/webhook', (req, res) => {
-    let reply_token = req.body.events[0].replyToken
-    let msg = req.body.events[0].message.text
+    console.log("Hi");
+    try {
+        let reply_token = req.body.events[0].replyToken
+        let msg = req.body.events[0].message.text
 
-    if (msg.toLowerCase() === "hello".toLowerCase()) {
-        console.log("Hi, I am an innocent robot. Nice to meet you.");
-        reply(reply_token, "Hi, I am an innocent robot. Nice to meet you.")
-    } else if ((msg.toLowerCase() === "Good Bye".toLowerCase())) {
-        console.log("Why you are so hurry? Anyway, take care of yourself.");
-        reply(reply_token, "Take care of yourself.")
-    } else {
-        const errorMessage = "It seems our bot cannot answer your question. Could you please try sending Hello or Good bye instead?"
-        setTimeout(() => {
-            reply(reply_token, errorMessage)
-            console.error(errorMessage)
-        }, 5000);
-        console.log()
+        if (msg.toLowerCase() === "hello".toLowerCase()) {
+            const message = "Hi, I am an innocent robot. Nice to meet you."
+            console.log(message);
+            reply(reply_token, message);
+        } else if ((msg.toLowerCase() === "Good Bye".toLowerCase())) {
+            const message = "Take care of yourself.";
+            reply(reply_token, message);
+        } else {
+            const errorMessage = "It seems our bot cannot answer your question. Could you please try sending Hello or Good bye instead?"
+            setTimeout(() => {
+                reply(reply_token, errorMessage)
+                console.error(errorMessage)
+            }, 5000);
+
+            res.sendStatus(200)
+        }
+    } catch (error) {
+        console.error(`Cannot parse json object: ${error.message}`);
+        res.sendStatus(200)
     }
-
-    res.sendStatus(200)
 })
 
 function reply(reply_token, msg) {
