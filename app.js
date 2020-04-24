@@ -15,9 +15,11 @@ const colors = [
 
 app.set('view engine', 'pug');
 app.use('/css', express.static('css'))
+app.disable('view cache');
 
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
+
 
 app.get('/', (req, res) => {
     res.render('index');
