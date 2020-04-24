@@ -39,15 +39,28 @@ app.post('/line_messages', (req, res) => {
     //console.dir(req.body)
 
     const crypto = require('crypto');
-
     const channelSecret = 'gKhGxHBRkyngeOe337T2dGxAeTpzAdF1N0xyHxRnJB6RIm9ZcTbsOiweAnzQQWiNeikIToTnasPc60IQu5tpxPNvnIweF5wMCYjCoEoWyWwrXowmVOAYx/l5BN4/NaEO0u43MMQw29F9lpkSG0NljgdB04t89/1O/w1cDnyilFU='; // Channel secret string
     const body = '...'; // Request body string
     const signature = crypto
         .createHmac('SHA256', channelSecret)
         .update(body).digest('base64');
 
+    const https = require('https');
+    const http = require('http');
 
-
+    let postBody = "";
+    req.on('data', data => {
+        postBody += data.toString()
+    });
+    req.on('end', () => {
+        try {
+            console.dir(postBody)
+            const messageBody = JSON.parse(postBody);
+            console.log(`${ messageBody.events[0].message.text }`)
+        } catch (error) {
+            console.error(`Cannot parse json object: ${error.message}`);
+        }
+    });
 
 
     console.log("I saw line message here on POST");
