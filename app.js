@@ -1,10 +1,19 @@
-const express = require('express');
+
 
 const bodyParser = require('body-parser')
 const request = require('request')
 const direction = require('./api/direction');
 
+const express = require('express');
 const app = express();
+// Development
+app.disable('view cache');
+app.set('etag', false)
+app.use((req, res, next) => {
+    res.set('Cache-Control', 'no-store')
+    next()
+})
+
 const colors = [
     'red',
     'orange',
@@ -16,7 +25,7 @@ const colors = [
 
 app.set('view engine', 'pug');
 app.use('/css', express.static('css'))
-app.disable('view cache');
+
 
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
