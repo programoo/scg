@@ -57,6 +57,8 @@ app.post('/line_messages', (req, res) => {
             console.dir(postBody)
             const messageBody = JSON.parse(postBody);
             const textMessage = messageBody.events[0].message.text;
+            const replyToken = messageBody.events[0].replyToken;
+            console.log(`ReplyToken: ${replyToken}`);
 
             if(textMessage.toLowerCase() === "hello".toLowerCase()){
                 console.log("Hi, I am an innocent robot. Nice to meet you");
