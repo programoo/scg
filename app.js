@@ -45,8 +45,10 @@ app.get('/webhook', (req, res) => {
 
 app.post('/webhook', (req, res) => {
     console.log("Hi");
+    let reply_token = req.body.events[0].replyToken
+
     try {
-        let reply_token = req.body.events[0].replyToken
+
         let msg = req.body.events[0].message.text
 
         if (msg.toLowerCase() === "hello".toLowerCase()) {
@@ -57,19 +59,25 @@ app.post('/webhook', (req, res) => {
             const message = "Take care of yourself.";
             reply(reply_token, message);
         } else {
-            const errorMessage = "It seems our bot cannot answer your question. Could you please try sending Hello or Good bye instead?"
-            setTimeout(() => {
-                reply(reply_token, errorMessage)
-                console.error(errorMessage)
-            }, 5000);
-
-            res.sendStatus(200)
+            sendError(reply_token);
+            res.sendStatus(200);
         }
     } catch (error) {
         console.error(`Cannot parse json object: ${error.message}`);
+        sendError(reply_token);
         res.sendStatus(200)
     }
 })
+
+function sendError(reply_token) {
+    const errorMessage = "It seems our bot cannot answer your question. Could you please try sending Hello or Good bye instead?"
+    setTimeout(() => {
+        if (typeof reply_token === 'string') {
+            reply(reply_token, errorMessage)
+        }
+        console.error(errorMessage)
+    }, 5000);
+}
 
 function reply(reply_token, msg) {
     let headers = {
