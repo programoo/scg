@@ -1,5 +1,8 @@
 const express = require('express');
 
+const bodyParser = require('body-parser')
+const request = require('request')
+
 const app = express();
 const colors = [
     'red',
@@ -10,7 +13,14 @@ const colors = [
     'purple'
 ];
 
+
 app.set('view engine', 'pug');
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+
+
+
+
 
 app.get('/', (req, res) => {
     res.render('index');
@@ -29,7 +39,38 @@ app.get('/directions', (req, res) => {
     });
 })
 
-// gKhGxHBRkyngeOe337T2dGxAeTpzAdF1N0xyHxRnJB6RIm9ZcTbsOiweAnzQQWiNeikIToTnasPc60IQu5tpxPNvnIweF5wMCYjCoEoWyWwrXowmVOAYx/l5BN4/NaEO0u43MMQw29F9lpkSG0NljgdB04t89/1O/w1cDnyilFU=
+const channel_excess_token = 'gKhGxHBRkyngeOe337T2dGxAeTpzAdF1N0xyHxRnJB6RIm9ZcTbsOiweAnzQQWiNeikIToTnasPc60IQu5tpxPNvnIweF5wMCYjCoEoWyWwrXowmVOAYx/l5BN4/NaEO0u43MMQw29F9lpkSG0NljgdB04t89/1O/w1cDnyilFU='
+
+
+app.post('/webhook', (req, res) => {
+    let reply_token = req.body.events[0].replyToken
+    let msg = req.body.events[0].message.text
+    reply(reply_token, msg)
+    res.sendStatus(200)
+})
+
+function reply(reply_token, msg) {
+    let headers = {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${channel_excess_token}`
+    }
+
+    let body = JSON.stringify({
+        replyToken: reply_token,
+        messages: [{
+            type: 'text',
+            text: msg
+        }]
+    })
+
+    request.post({
+        url: 'https://api.line.me/v2/bot/message/reply',
+        headers: headers,
+        body: body
+    }, (err, res, body) => {
+        console.log('status = ' + res.statusCode);
+    });
+}
 
 app.post('/line_messages', (req, res) => {
     const xLineSignature = req.rawHeaders[1]
