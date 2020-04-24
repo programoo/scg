@@ -1,0 +1,8 @@
+body {
+  background: black;
+  background-color: lightcoral;
+
+  @import 'footer';
+  @import 'header';
+}
+

@@ -1,0 +1,16 @@
+extends ../layout.pug
+
+block content
+    section#content
+        h2 The best way to commute
+        ul
+            each color in colors
+                li #{color.html_instructions}
+        h2 #{'oknaja what'}
+        if hint
+            p
+                i Hint: #{hint}
+        else
+            p
+                i Hint: There is no hint
+

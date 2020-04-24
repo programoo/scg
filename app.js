@@ -1,9 +1,19 @@
-const express = require('express');
+
 
 const bodyParser = require('body-parser')
 const request = require('request')
+const direction = require('./api/direction');
 
+const express = require('express');
 const app = express();
+// Development
+app.disable('view cache');
+app.set('etag', false)
+app.use((req, res, next) => {
+    res.set('Cache-Control', 'no-store')
+    next()
+})
+
 const colors = [
     'red',
     'orange',
@@ -14,8 +24,12 @@ const colors = [
 ];
 
 app.set('view engine', 'pug');
+app.use('/css', express.static('css'))
+
+
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
+
 
 app.get('/', (req, res) => {
     res.render('index');
@@ -26,12 +40,9 @@ app.get('/hello', (req, res) => {
 })
 
 app.get('/directions', (req, res) => {
-    res.render('directions', {
-        prompt: "Who is barried in ground tombee?",
-        hint: "This about who is this ?",
-        colors: colors,
-        cache: true
-    });
+    const modes = ['driving']//['transit', 'driving', 'walking'];
+    const steps = direction.getDirection('driving', res) // null;
+    console.dir(`STEP: ${steps}`)
 })
 
 const channel_excess_token = 'gKhGxHBRkyngeOe337T2dGxAeTpzAdF1N0xyHxRnJB6RIm9ZcTbsOiweAnzQQWiNeikIToTnasPc60IQu5tpxPNvnIweF5wMCYjCoEoWyWwrXowmVOAYx/l5BN4/NaEO0u43MMQw29F9lpkSG0NljgdB04t89/1O/w1cDnyilFU='
