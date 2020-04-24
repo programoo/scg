@@ -29,9 +29,28 @@ app.get('/directions', (req, res) => {
     });
 })
 
-app.post('/line_messages', (req, res) => {
-    console.log("I saw line message here on POST");
+// gKhGxHBRkyngeOe337T2dGxAeTpzAdF1N0xyHxRnJB6RIm9ZcTbsOiweAnzQQWiNeikIToTnasPc60IQu5tpxPNvnIweF5wMCYjCoEoWyWwrXowmVOAYx/l5BN4/NaEO0u43MMQw29F9lpkSG0NljgdB04t89/1O/w1cDnyilFU=
 
+app.post('/line_messages', (req, res) => {
+    const xLineSignature = req.rawHeaders[1]
+    //console.dir(req.rawHeaders[1])
+    //console.dir(req)
+    console.log(req.body)
+    //console.dir(req.body)
+
+    const crypto = require('crypto');
+
+    const channelSecret = 'gKhGxHBRkyngeOe337T2dGxAeTpzAdF1N0xyHxRnJB6RIm9ZcTbsOiweAnzQQWiNeikIToTnasPc60IQu5tpxPNvnIweF5wMCYjCoEoWyWwrXowmVOAYx/l5BN4/NaEO0u43MMQw29F9lpkSG0NljgdB04t89/1O/w1cDnyilFU='; // Channel secret string
+    const body = '...'; // Request body string
+    const signature = crypto
+        .createHmac('SHA256', channelSecret)
+        .update(body).digest('base64');
+
+
+
+
+
+    console.log("I saw line message here on POST");
     res.send("<h1>Hello Line Messaging Developer</h1>");
 })
 
