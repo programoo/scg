@@ -40,7 +40,6 @@ app.post('/webhook', (req, res) => {
     let reply_token = req.body.events[0].replyToken
     let msg = req.body.events[0].message.text
 
-
     if (msg.toLowerCase() === "hello".toLowerCase()) {
         console.log("Hi, I am an innocent robot. Nice to meet you.");
         reply(reply_token, "Hi, I am an innocent robot. Nice to meet you.")
@@ -50,7 +49,7 @@ app.post('/webhook', (req, res) => {
     } else {
         const errorMessage = "It seems our bot cannot answer your question. Could you please try sending Hello or Good bye instead?"
         setTimeout(() => {
-            reply(reply_token, "Why you are so hurry? Anyway, take care of yourself.")
+            reply(reply_token, errorMessage)
             console.error(errorMessage)
         }, 5000);
         console.log()
