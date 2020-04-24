@@ -2,6 +2,7 @@ const express = require('express');
 
 const bodyParser = require('body-parser')
 const request = require('request')
+const direction = require('./api/direction');
 
 const app = express();
 const colors = [
@@ -30,6 +31,14 @@ app.get('/hello', (req, res) => {
 })
 
 app.get('/directions', (req, res) => {
+    const modes = ['transit', 'driving', 'walking'];
+
+    modes.forEach(mode => {
+        console.log(mode);
+        direction.getDirection(mode)
+    });
+
+
     res.render('directions/index', {
         prompt: "Who is barried in ground tombee?",
         hint: "This about who is this ?",
