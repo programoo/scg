@@ -7,4 +7,11 @@
   h1 {
     color: white;
   }
+
+  .list-group {
+    .list-group-item {
+      text-align: left;
+      background: green;
+    }
+  }
 }

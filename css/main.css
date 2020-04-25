@@ -19,6 +19,9 @@ html, body {
       overflow: scroll; }
       html .container-fluid #container h1, body .container-fluid #container h1 {
         color: white; }
+      html .container-fluid #container .list-group .list-group-item, body .container-fluid #container .list-group .list-group-item {
+        text-align: left;
+        background: green; }
     html .container-fluid .footer, body .container-fluid .footer {
       position: fixed;
       left: 0;
