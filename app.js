@@ -81,7 +81,7 @@ function sendError(userId) {
             pushMessage(userId, errorMessage)
         }
         console.error(errorMessage)
-    }, 5000);
+    }, 10000);
 }
 
 function pushMessage(userId, msg) {
