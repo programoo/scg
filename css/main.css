@@ -5,21 +5,25 @@ html, body {
   background: black;
   background-color: lightcoral;
   padding: 0; }
-  html header, body header {
-    text-align: center;
-    background: #E6091C; }
-    html header h1, body header h1 {
-      color: aqua; }
-  html #container, body #container {
-    margin-top: 49px;
-    text-align: center; }
-    html #container h1, body #container h1 {
-      color: white; }
-  html .footer, body .footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: red;
-    color: white;
-    text-align: center; }
+  html .container-fluid, body .container-fluid {
+    padding: 0; }
+    html .container-fluid header, body .container-fluid header {
+      text-align: center;
+      background: #E6091C; }
+      html .container-fluid header h1, body .container-fluid header h1 {
+        color: aqua; }
+    html .container-fluid #container, body .container-fluid #container {
+      margin-top: 49px;
+      text-align: center;
+      height: 880px;
+      overflow: scroll; }
+      html .container-fluid #container h1, body .container-fluid #container h1 {
+        color: white; }
+    html .container-fluid .footer, body .container-fluid .footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: red;
+      color: white;
+      text-align: center; }

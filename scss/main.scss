@@ -7,9 +7,12 @@ html, body {
 
   padding: 0;
 
+  .container-fluid{
+    padding: 0;
 
-  @import 'header';
-  @import 'container';
-  @import 'footer';
+    @import 'header';
+    @import 'container';
+    @import 'footer';
+  }
 }
 
