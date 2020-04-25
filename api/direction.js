@@ -12,7 +12,7 @@ destinationLng = 100.5393351
 const sourceText = 'The+Siam+Cement+Public+Company+Limited'
 const destinationText = 'centralwOrld'
 
-function getDirection(mode, response) {
+function getDirection(mode, response, queryString) {
     const url = `https://maps.googleapis.com/maps/api/directions/json?mode=${mode}&origin=${sourceLat},${sourceLng}&destination=${destinationLat},${destinationLng}&key=${'AIzaSyCrs4tHo0EfCYFaZ08FHvmNQYVMgF3RqBA'}`
     console.log(`Request ${url}`)
 
@@ -23,12 +23,8 @@ function getDirection(mode, response) {
         } else {
             const body = JSON.parse(res.body);
             const steps = body.routes[0].legs[0].steps;
-
-            console.dir(body.routes[0].legs[0].steps);
-            console.log("Success");
-
             response.render('directions/index', {
-                prompt: "Who is barried in ground tombee?",
+                queryString: queryString,
                 mode: mode,
                 steps: steps
             });
