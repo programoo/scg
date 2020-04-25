@@ -14,24 +14,17 @@ app.use((req, res, next) => {
     next()
 })
 
-const colors = [
-    'red',
-    'orange',
-    'yellow',
-    'green',
-    'blue',
-    'purple'
-];
 
 app.set('view engine', 'pug');
 app.use('/css', express.static('css'))
-
 
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
 
 app.get('/', (req, res) => {
+    console.log(req.query);
+
     res.render('index');
 })
 
@@ -40,17 +33,15 @@ app.get('/hello', (req, res) => {
 })
 
 app.get('/directions', (req, res) => {
+    console.log(req.query);
     const modes = ['driving']//['transit', 'driving', 'walking'];
-    const steps = direction.getDirection('driving', res) // null;
-    console.dir(`STEP: ${steps}`)
+    direction.getDirection('driving', res, req.query) // null;
 })
 
 const channel_excess_token = 'gKhGxHBRkyngeOe337T2dGxAeTpzAdF1N0xyHxRnJB6RIm9ZcTbsOiweAnzQQWiNeikIToTnasPc60IQu5tpxPNvnIweF5wMCYjCoEoWyWwrXowmVOAYx/l5BN4/NaEO0u43MMQw29F9lpkSG0NljgdB04t89/1O/w1cDnyilFU='
 
-
 app.get('/webhook', (req, res) => {
     console.log("I saw line message here on GET");
-
     res.send("<h1>Hello Line Messaging Developer</h1>");
 })
 

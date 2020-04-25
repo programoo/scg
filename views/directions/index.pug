@@ -1,16 +1,18 @@
 extends ../layout.pug
 
+block variables
+    - var body_class = `${queryString.active_tab}`
+
 block content
-    section#content
-        h2 The best way to commute
-        ul
-            each color in colors
-                li #{color.html_instructions}
-        h2 #{'oknaja what'}
-        if hint
-            p
-                i Hint: #{hint}
-        else
-            p
-                i Hint: There is no hint
+    #container.d-flex.flex-column
+        h2 The best way to commute: #{mode}
+
+        .container-wrapper.col-12.d-flex.justify-content-center
+            ul.list-group.col-6
+                each step in steps
+                    li.list-group-item.d-flex
+                        .description.col-10 !{step.html_instructions}
+                        .details.col-2
+                            p.duration #{step.duration.text}
+                            p.distance #{step.distance.text}
 

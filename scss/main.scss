@@ -1,8 +1,18 @@
-body {
+html, body {
+  width: 100%;
+  height: 100%;
+  font-size: 14px !important;
   background: black;
   background-color: lightcoral;
 
-  @import 'footer';
-  @import 'header';
+  padding: 0;
+
+  .container-fluid{
+    padding: 0;
+
+    @import 'header';
+    @import 'container';
+    @import 'footer';
+  }
 }
 
