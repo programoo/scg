@@ -14,6 +14,8 @@ const destinationText = 'centralwOrld'
 
 function getDirection(mode, response) {
     const url = `https://maps.googleapis.com/maps/api/directions/json?mode=${mode}&origin=${sourceLat},${sourceLng}&destination=${destinationLat},${destinationLng}&key=${'AIzaSyCrs4tHo0EfCYFaZ08FHvmNQYVMgF3RqBA'}`
+    console.log(`Request ${url}`)
+
     request(url, (err, res, body) => {
         if (err) {
             console.log(err);
