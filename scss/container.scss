@@ -1,7 +1,7 @@
 #container {
   margin-top: 49px;
   text-align: center;
-  height: 880px;
+  height: 840px;
   overflow: scroll;
 
   h1 {
@@ -10,9 +10,6 @@
 
   .list-group {
     .list-group-item {
-      display: flex;
-      flex-direction: row;
-
       text-align: left;
       background: white;
 

@@ -5,7 +5,7 @@ block content
     #container.d-flex.justify-content-center
         ul.list-group.col-6
             each step in steps
-                li.list-group-item
+                li.list-group-item.d-flex
                     .description.col-10 !{step.html_instructions}
                     .details.col-2
                         p.duration #{step.duration.text}
