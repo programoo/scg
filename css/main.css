@@ -23,7 +23,14 @@ html, body {
         display: flex;
         flex-direction: row;
         text-align: left;
-        background: green; }
+        background: white; }
+        html .container-fluid #container .list-group .list-group-item .details .duration, body .container-fluid #container .list-group .list-group-item .details .duration {
+          font-size: 16px;
+          color: forestgreen;
+          font-weight: 500; }
+        html .container-fluid #container .list-group .list-group-item .details .distance, body .container-fluid #container .list-group .list-group-item .details .distance {
+          font-size: 13px;
+          color: gray; }
     html .container-fluid .footer, body .container-fluid .footer {
       position: fixed;
       left: 0;

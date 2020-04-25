@@ -1,20 +1,13 @@
 extends ../layout.pug
 
 block content
-    #container
-        h2 The best way to commute
-        ul.list-group
+    h2 The best way to commute
+    #container.d-flex.justify-content-center
+        ul.list-group.col-6
             each step in steps
                 li.list-group-item
-                    .description.col-6 !{step.html_instructions}
-                    .details.col-6
-                        p.duration 19.88
-                        p.distance 51
-
-        if hint
-            p
-                i Hint: #{hint}
-        else
-            p
-                i Hint: There is no hint
+                    .description.col-10 !{step.html_instructions}
+                    .details.col-2
+                        p.duration #{step.duration.text}
+                        p.distance #{step.distance.text}
 
