@@ -15,7 +15,7 @@ html, body {
     html .container-fluid #container, body .container-fluid #container {
       margin-top: 49px;
       text-align: center;
-      height: 840px;
+      height: 860px;
       overflow: scroll; }
       html .container-fluid #container h1, body .container-fluid #container h1 {
         color: white; }

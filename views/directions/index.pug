@@ -1,13 +1,15 @@
 extends ../layout.pug
 
 block content
-    h2 The best way to commute
-    #container.d-flex.justify-content-center
-        ul.list-group.col-6
-            each step in steps
-                li.list-group-item.d-flex
-                    .description.col-10 !{step.html_instructions}
-                    .details.col-2
-                        p.duration #{step.duration.text}
-                        p.distance #{step.distance.text}
+    #container.d-flex.flex-column
+        h2 The best way to commute
+
+        .container-wrapper.col-12.d-flex.justify-content-center
+            ul.list-group.col-6
+                each step in steps
+                    li.list-group-item.d-flex
+                        .description.col-10 !{step.html_instructions}
+                        .details.col-2
+                            p.duration #{step.duration.text}
+                            p.distance #{step.distance.text}
 
