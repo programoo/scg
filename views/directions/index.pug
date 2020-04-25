@@ -1,5 +1,8 @@
 extends ../layout.pug
 
+block variables
+    - var body_class = `${queryString.active_tab}`
+
 block content
     #container.d-flex.flex-column
         h2 The best way to commute: #{mode}
