@@ -22,11 +22,11 @@ function getDirection(mode, response, queryString) {
             res.send("<h1>Hello Javascript Developer</h1>");
         } else {
             const body = JSON.parse(res.body);
-            const steps = body.routes[0].legs[0].steps;
+            const route = body.routes[0];
             response.render('directions/index', {
                 queryString: queryString,
                 mode: mode,
-                steps: steps
+                route: route
             });
         }
     });
