@@ -1,14 +1,25 @@
-body {
+html, body {
+  width: 100%;
+  height: 100%;
   font-size: 14px !important;
   background: black;
-  background-color: lightcoral; }
-  body footer {
+  background-color: lightcoral;
+  padding: 0; }
+  html header, body header {
     text-align: center;
     background: #E6091C; }
-    body footer h1 {
+    html header h1, body header h1 {
       color: aqua; }
-  body header {
-    text-align: center;
-    background: #E6091C; }
-    body header h1 {
-      color: aqua; }
+  html #container, body #container {
+    margin-top: 49px;
+    text-align: center; }
+    html #container h1, body #container h1 {
+      color: white; }
+  html .footer, body .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: red;
+    color: white;
+    text-align: center; }

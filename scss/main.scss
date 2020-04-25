@@ -4,8 +4,12 @@ html, body {
   font-size: 14px !important;
   background: black;
   background-color: lightcoral;
+
+  padding: 0;
+
+
   @import 'header';
-  @import 'main_container';
+  @import 'container';
   @import 'footer';
 }
 
