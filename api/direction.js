@@ -33,8 +33,7 @@ function getDirection(mode, res) {
                         res.render('directions/index', {
                             prompt: "Who is barried in ground tombee?",
                             hint: "This about who is this ?",
-                            colors: steps,
-                            cache: true
+                            steps: steps
                         });
 
 

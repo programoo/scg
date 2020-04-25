@@ -4,8 +4,13 @@ block content
     #container
         h2 The best way to commute
         ul.list-group
-            each color in colors
-                li.list-group-item !{color.html_instructions}
+            each step in steps
+                li.list-group-item
+                    .description.col-6 !{step.html_instructions}
+                    .details.col-6
+                        p.duration 19.88
+                        p.distance 51
+
         if hint
             p
                 i Hint: #{hint}

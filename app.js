@@ -14,15 +14,6 @@ app.use((req, res, next) => {
     next()
 })
 
-const colors = [
-    'red',
-    'orange',
-    'yellow',
-    'green',
-    'blue',
-    'purple'
-];
-
 app.set('view engine', 'pug');
 app.use('/css', express.static('css'))
 
