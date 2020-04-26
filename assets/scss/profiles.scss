@@ -1,0 +1,99 @@
+.profiles-container {
+  padding: 60px;
+  padding-top: 140px;
+  text-align: center;
+  overflow: scroll;
+  background: lightgray;
+
+  .personal-details {
+    padding: 0;
+    background: white;
+    margin: 0;
+
+    .title {
+      font-weight: 500;
+    }
+
+    .demographic-table {
+      text-align: left;
+
+      tbody {
+        tr {
+          td {
+            &.title {
+              font-weight: 500;
+            }
+
+            &.description {
+              color: darkgrey;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .about-me {
+    margin-left: 20px;
+    padding: 0px;
+
+    .title {
+      text-align: left;
+      font-weight: bold;
+      display: block;
+      width: 100%;
+      border-bottom: 2px solid black;
+    }
+
+    > div {
+      margin: 0;
+      margin-bottom: 5px;
+      padding: 10px;
+      background: white;
+    }
+
+    .skills {
+      button.skill {
+        border-radius: 20px;
+        margin: 3px;
+      }
+    }
+
+    .certifications{
+      text-align: left;
+
+      ul{
+        list-style-type: none;
+        li{
+          &.name{
+            font-weight: 500;
+          }
+          &.company{
+            color: lightgrey;
+            font-size: 12px;
+          }
+        }
+      }
+    }
+
+    .working-place{
+      text-align: left;
+
+      .section-description{
+        text-align: center;
+      }
+
+      .period{
+        font-size: 11px;
+        color: grey;
+      }
+
+      ul.achievements{
+        li.achievement{
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
+

@@ -1,0 +1,92 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  font-size: 14px !important;
+  background: black;
+  background-color: lightcoral;
+  padding: 0; }
+  html .container-fluid, body .container-fluid {
+    padding: 0; }
+    html .container-fluid .navbar, body .container-fluid .navbar {
+      height: 60px; }
+      html .container-fluid .navbar .navbar-brand, body .container-fluid .navbar .navbar-brand {
+        font-weight: bold;
+        color: white;
+        padding: 5px;
+        background: red; }
+    html .container-fluid .directions-container, body .container-fluid .directions-container {
+      padding: 60px;
+      padding-bottom: 0px;
+      text-align: center;
+      overflow: scroll;
+      max-height: 916px; }
+      html .container-fluid .directions-container .list-group .list-group-item, body .container-fluid .directions-container .list-group .list-group-item {
+        text-align: left;
+        background: white; }
+        html .container-fluid .directions-container .list-group .list-group-item .details .duration, body .container-fluid .directions-container .list-group .list-group-item .details .duration {
+          font-size: 16px;
+          color: forestgreen;
+          font-weight: 500; }
+        html .container-fluid .directions-container .list-group .list-group-item .details .distance, body .container-fluid .directions-container .list-group .list-group-item .details .distance {
+          font-size: 13px;
+          color: gray; }
+    html .container-fluid .profiles-container, body .container-fluid .profiles-container {
+      padding: 60px;
+      padding-top: 140px;
+      text-align: center;
+      overflow: scroll;
+      background: lightgray; }
+      html .container-fluid .profiles-container .personal-details, body .container-fluid .profiles-container .personal-details {
+        padding: 0;
+        background: white;
+        margin: 0; }
+        html .container-fluid .profiles-container .personal-details .title, body .container-fluid .profiles-container .personal-details .title {
+          font-weight: 500; }
+        html .container-fluid .profiles-container .personal-details .demographic-table, body .container-fluid .profiles-container .personal-details .demographic-table {
+          text-align: left; }
+          html .container-fluid .profiles-container .personal-details .demographic-table tbody tr td.title, body .container-fluid .profiles-container .personal-details .demographic-table tbody tr td.title {
+            font-weight: 500; }
+          html .container-fluid .profiles-container .personal-details .demographic-table tbody tr td.description, body .container-fluid .profiles-container .personal-details .demographic-table tbody tr td.description {
+            color: darkgrey; }
+      html .container-fluid .profiles-container .about-me, body .container-fluid .profiles-container .about-me {
+        margin-left: 20px;
+        padding: 0px; }
+        html .container-fluid .profiles-container .about-me .title, body .container-fluid .profiles-container .about-me .title {
+          text-align: left;
+          font-weight: bold;
+          display: block;
+          width: 100%;
+          border-bottom: 2px solid black; }
+        html .container-fluid .profiles-container .about-me > div, body .container-fluid .profiles-container .about-me > div {
+          margin: 0;
+          margin-bottom: 5px;
+          padding: 10px;
+          background: white; }
+        html .container-fluid .profiles-container .about-me .skills button.skill, body .container-fluid .profiles-container .about-me .skills button.skill {
+          border-radius: 20px;
+          margin: 3px; }
+        html .container-fluid .profiles-container .about-me .certifications, body .container-fluid .profiles-container .about-me .certifications {
+          text-align: left; }
+          html .container-fluid .profiles-container .about-me .certifications ul, body .container-fluid .profiles-container .about-me .certifications ul {
+            list-style-type: none; }
+            html .container-fluid .profiles-container .about-me .certifications ul li.name, body .container-fluid .profiles-container .about-me .certifications ul li.name {
+              font-weight: 500; }
+            html .container-fluid .profiles-container .about-me .certifications ul li.company, body .container-fluid .profiles-container .about-me .certifications ul li.company {
+              color: lightgrey;
+              font-size: 12px; }
+        html .container-fluid .profiles-container .about-me .working-place, body .container-fluid .profiles-container .about-me .working-place {
+          text-align: left; }
+          html .container-fluid .profiles-container .about-me .working-place .section-description, body .container-fluid .profiles-container .about-me .working-place .section-description {
+            text-align: center; }
+          html .container-fluid .profiles-container .about-me .working-place .period, body .container-fluid .profiles-container .about-me .working-place .period {
+            font-size: 11px;
+            color: grey; }
+          html .container-fluid .profiles-container .about-me .working-place ul.achievements li.achievement, body .container-fluid .profiles-container .about-me .working-place ul.achievements li.achievement {
+            font-size: 12px; }
+    html .container-fluid .footer, body .container-fluid .footer {
+      text-align: center;
+      bottom: 0;
+      width: 100%;
+      height: 60px;
+      line-height: 60px;
+      background-color: red; }

@@ -1,5 +1,3 @@
-
-
 const bodyParser = require('body-parser')
 const request = require('request')
 const direction = require('./api/direction');
@@ -16,7 +14,9 @@ app.use((req, res, next) => {
 
 
 app.set('view engine', 'pug');
-app.use('/css', express.static('css'))
+//app.use('/css', express.static('css'))
+
+app.use(express.static(__dirname + '/public'));
 
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
@@ -25,7 +25,7 @@ app.use(bodyParser.json())
 app.get('/', (req, res) => {
     console.log(req.query);
 
-    res.render('index');
+    res.render('profiles/index');
 })
 
 app.get('/hello', (req, res) => {
@@ -130,15 +130,31 @@ function reply(reply_token, msg) {
     });
 }
 
-const port = process.env.PORT || 3000;
+//Handle Middleware Error
 
+app.use((req, res, next) =>{
+   const err = new Error("Not found");
+   next(err);
+});
+
+app.use((err, req, res, next) => {
+    res.status(err.status || 500);
+    res.json({
+        error:{
+            message: err.message
+        }
+    })
+})
+
+
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log('The application is running on localhost:3000');
 });
 
 // const direction = require('./api/direction');
-// const abc = require('./calculation/abc');
-// const xyz = require('./calculation/xyz');
+// const abc = require('./lib/abc');
+// const xyz = require('./lib/xyz');
 
 // A = 21
 // A_B = 23

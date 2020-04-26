@@ -4,14 +4,13 @@ html, body {
   font-size: 14px !important;
   background: black;
   background-color: lightcoral;
-
   padding: 0;
 
-  .container-fluid{
+  .container-fluid {
     padding: 0;
-
     @import 'header';
-    @import 'container';
+    @import 'directions';
+    @import 'profiles';
     @import 'footer';
   }
 }
