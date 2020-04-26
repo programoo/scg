@@ -76,13 +76,16 @@ Movie.init({
     await sequelize.sync({ force: true });
 
     try {
-        // Instance of the Movie class represents a database row
-        const movie = await Movie.create();
+        const movie = await Movie.create({
+            title: 'Toy Story',
+        });
+        console.log(movie.toJSON());
 
     } catch (error) {
         console.error('Error connecting to the database: ', error);
     }
 })();
+
 
 // const abc = require('./lib/abc');
 // const xyz = require('./lib/xyz');
