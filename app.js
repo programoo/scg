@@ -50,24 +50,6 @@ app.use((err, req, res, next) => {
     res.render('error');
 });
 
-const Sequelize = require('sequelize');
-const sequelize = new Sequelize({
-    dialect: 'sqlite',
-    storage: 'development.db'
-});
-
-(async () => {
-    try {
-        await sequelize.authenticate();
-        console.log('Connection to the database successful!');
-    } catch (error) {
-        console.error('Error connecting to the database: ', error);
-    }
-})();
-
-// Movie model
-// Movie model
-
 const db = require('./db');
 const { Movie } = db.models;
 
@@ -76,7 +58,7 @@ const { Movie } = db.models;
 
     try {
         const movie = await Movie.create({
-            title: 'Toy Story2',
+            title: 'Toy Story3',
         });
         console.log(movie.toJSON());
 
