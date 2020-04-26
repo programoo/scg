@@ -9,10 +9,8 @@ html, body {
   .container-fluid {
     padding: 0;
     @import 'header';
-
     @import 'directions';
     @import 'profiles';
-
     @import 'footer';
   }
 }

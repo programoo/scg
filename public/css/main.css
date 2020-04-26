@@ -52,6 +52,8 @@ html, body {
         margin-left: 20px;
         padding: 0px; }
         html .container-fluid .profiles-container .about-me .title, body .container-fluid .profiles-container .about-me .title {
+          text-align: left;
+          font-weight: bold;
           display: block;
           width: 100%;
           border-bottom: 1px solid lightgrey; }
@@ -60,6 +62,9 @@ html, body {
           margin-bottom: 2px;
           padding: 10px;
           background: white; }
+        html .container-fluid .profiles-container .about-me .skills button.skill, body .container-fluid .profiles-container .about-me .skills button.skill {
+          border-radius: 20px;
+          margin: 3px; }
     html .container-fluid .footer, body .container-fluid .footer {
       text-align: center;
       bottom: 0;
