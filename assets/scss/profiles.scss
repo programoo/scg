@@ -42,12 +42,12 @@
       font-weight: bold;
       display: block;
       width: 100%;
-      border-bottom: 1px solid lightgrey;
+      border-bottom: 2px solid black;
     }
 
     > div {
       margin: 0;
-      margin-bottom: 2px;
+      margin-bottom: 5px;
       padding: 10px;
       background: white;
     }
@@ -56,6 +56,22 @@
       button.skill {
         border-radius: 20px;
         margin: 3px;
+      }
+    }
+
+    .working-place{
+      text-align: left;
+
+      .period{
+        font-size: 11px;
+        color: grey;
+      }
+
+      ul.achievements{
+        li.achievement{
+          font-size: 12px;
+
+        }
       }
     }
   }
