@@ -4,8 +4,6 @@ const router = express.Router();
 const request = require('request');
 const channel_excess_token = 'gKhGxHBRkyngeOe337T2dGxAeTpzAdF1N0xyHxRnJB6RIm9ZcTbsOiweAnzQQWiNeikIToTnasPc60IQu5tpxPNvnIweF5wMCYjCoEoWyWwrXowmVOAYx/l5BN4/NaEO0u43MMQw29F9lpkSG0NljgdB04t89/1O/w1cDnyilFU='
 
-
-
 router.get('/webhook', (req, res) => {
     console.log("I saw line message here on GET");
     res.send("<h1>Hello Line Messaging Developer</h1>");

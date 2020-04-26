@@ -16,8 +16,6 @@ app.use((req, res, next) => {
 })
 
 app.set('view engine', 'pug');
-//app.use('/css', express.static('css'))
-
 app.use(express.static(__dirname + '/public'));
 
 app.use(bodyParser.urlencoded({extended: false}))
@@ -27,38 +25,8 @@ app.use('/', routes);
 app.use('/profiles', profiles);
 app.use('/directions', directions);
 
+/////////////////////////////////////////////////////// APIs
 app.use('/api/lines', apiLines);
-
-//
-
-//
-// const channel_excess_token = 'gKhGxHBRkyngeOe337T2dGxAeTpzAdF1N0xyHxRnJB6RIm9ZcTbsOiweAnzQQWiNeikIToTnasPc60IQu5tpxPNvnIweF5wMCYjCoEoWyWwrXowmVOAYx/l5BN4/NaEO0u43MMQw29F9lpkSG0NljgdB04t89/1O/w1cDnyilFU='
-//
-// app.get('/webhook', (req, res) => {
-//     console.log("I saw line message here on GET");
-//     res.send("<h1>Hello Line Messaging Developer</h1>");
-// })
-//
-
-//
-
-//
-//
-//
-// app.use((req, res, next) =>{
-//    const err = new Error("Not found");
-//    next(err);
-// });
-//
-// app.use((err, req, res, next) => {
-//     res.status(err.status || 500);
-//     res.json({
-//         error:{
-//             message: err.message
-//         }
-//     })
-// })
-
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
