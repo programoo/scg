@@ -35,12 +35,12 @@ app.listen(port, () => {
 });
 
 // catch 404 and forward to error handler
-app.use( (req, res, next) => {
+app.use((req, res, next) => {
     next(createError(404));
 });
 
 // error handler
-app.use( (err, req, res, next) => {
+app.use((err, req, res, next) => {
     // set locals, only providing error in development
     res.locals.message = err.message;
     res.locals.error = req.app.get('env') === 'development' ? err : {};
@@ -67,25 +67,23 @@ const sequelize = new Sequelize({
 
 // Movie model
 // Movie model
-class Movie extends Sequelize.Model {}
-Movie.init({
-    title: Sequelize.STRING,
-}, { sequelize });
+
+const db = require('./db');
+const { Movie } = db.models;
 
 (async () => {
-    await sequelize.sync({ force: true });
+    await db.sequelize.sync({ force: true });
 
     try {
-        const movieInstances = await Promise.all([
-            Movie.create({
-                title: 'Toy Story'
-            }),
-            Movie.create({
-                title: 'The Incredibles'
-            }),
-        ]);
-        const moviesJSON = movieInstances.map(movie => movie.toJSON());
-        console.log(moviesJSON);
+        const movie = await Movie.create({
+            title: 'Toy Story2',
+        });
+        console.log(movie.toJSON());
+
+        const movie2 = await Movie.create({
+            title: 'The Incredibles'
+        });
+        console.log(movie2.toJSON());
 
     } catch (error) {
         console.error('Error connecting to the database: ', error);
