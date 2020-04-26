@@ -13,7 +13,6 @@ function asyncHandler(cb) {
 }
 
 router.get('/', asyncHandler(async (req, res) => {
-    console.log(req.query);
     res.render('profiles/index');
 }))
 
