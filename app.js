@@ -50,6 +50,20 @@ app.use( (err, req, res, next) => {
     res.render('error');
 });
 
+const Sequelize = require('sequelize');
+const sequelize = new Sequelize({
+    dialect: 'sqlite',
+    storage: 'development.db'
+});
+
+(async () => {
+    try {
+        await sequelize.authenticate();
+        console.log('Connection to the database successful!');
+    } catch (error) {
+        console.error('Error connecting to the database: ', error);
+    }
+})();
 
 
 
@@ -59,11 +73,6 @@ app.use( (err, req, res, next) => {
 
 
 
-
-
-
-
-// const direction = require('./api/direction');
 // const abc = require('./lib/abc');
 // const xyz = require('./lib/xyz');
 
