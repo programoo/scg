@@ -7,11 +7,12 @@ html, body {
   padding: 0; }
   html .container-fluid, body .container-fluid {
     padding: 0; }
-    html .container-fluid header, body .container-fluid header {
-      text-align: center;
-      background: #E6091C; }
-      html .container-fluid header h1, body .container-fluid header h1 {
-        color: aqua; }
+    html .container-fluid .navbar .navbar-brand, body .container-fluid .navbar .navbar-brand {
+      background: green;
+      font-weight: bold;
+      color: white;
+      padding: 5px;
+      background: red; }
     html .container-fluid #container, body .container-fluid #container {
       margin-top: 49px;
       text-align: center;
