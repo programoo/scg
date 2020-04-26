@@ -19,17 +19,10 @@ function asyncHandler(cb) {
 }
 
 async function getData() {
-    sourceLat = 13.8058793
-    sourceLng = 100.5375317
-    destinationLat = 13.7466304
-    destinationLng = 100.5393351
+    const direction = await Direction.findOne();
     mode = 'driving'
 
-    const direction = await Direction.findOne();
-    console.log(direction.sourceLat);
-
-
-    const url = `https://maps.googleapis.com/maps/api/directions/json?mode=${mode}&origin=${sourceLat},${sourceLng}&destination=${destinationLat},${destinationLng}&key=${GOOGLE_API_KEY}`
+    const url = `https://maps.googleapis.com/maps/api/directions/json?mode=${mode}&origin=${direction.sourceLat},${direction.sourceLng}&destination=${direction.destinationLat},${direction.destinationLng}&key=${GOOGLE_API_KEY}`
     const response = await axios.get(url);
     return response
 }
