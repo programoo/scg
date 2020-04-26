@@ -27,7 +27,7 @@ app.use(bodyParser.json())
 app.get('/', (req, res) => {
     console.log(req.query);
 
-    res.render('index');
+    res.render('profiles/index');
 })
 
 app.get('/hello', (req, res) => {
