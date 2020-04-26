@@ -1,5 +1,3 @@
-
-
 const bodyParser = require('body-parser')
 const request = require('request')
 const direction = require('./api/direction');
