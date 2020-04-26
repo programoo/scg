@@ -18,7 +18,7 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/hello', (req, res, next) => {
-    res.send("<h1>Hello Javascript Developer</h1>");
+    res.send("<h1>Server is running.</h1>");
 })
 
 module.exports = router;
