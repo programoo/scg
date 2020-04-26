@@ -10,24 +10,18 @@
     background: white;
     margin: 0;
 
-    .title {
-      font-weight: 500;
-    }
-
     .demographic-table {
       text-align: left;
+      .row {
+        border-top: 1px solid lightgrey;
+        padding: 5px;
 
-      tbody {
-        tr {
-          td {
-            &.title {
-              font-weight: 500;
-            }
+        .title {
+          font-weight: 500;
+        }
 
-            &.description {
-              color: darkgrey;
-            }
-          }
+        .description {
+          color: darkgrey;
         }
       }
     }
@@ -59,16 +53,18 @@
       }
     }
 
-    .certifications{
+    .certifications {
       text-align: left;
 
-      ul{
+      ul {
         list-style-type: none;
-        li{
-          &.name{
+
+        li {
+          &.name {
             font-weight: 500;
           }
-          &.company{
+
+          &.company {
             color: lightgrey;
             font-size: 12px;
           }
@@ -76,20 +72,20 @@
       }
     }
 
-    .working-place{
+    .working-place {
       text-align: left;
 
-      .section-description{
+      .section-description {
         text-align: center;
       }
 
-      .period{
+      .period {
         font-size: 11px;
         color: grey;
       }
 
-      ul.achievements{
-        li.achievement{
+      ul.achievements {
+        li.achievement {
           font-size: 12px;
         }
       }

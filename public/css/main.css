@@ -40,14 +40,15 @@ html, body {
         padding: 0;
         background: white;
         margin: 0; }
-        html .container-fluid .profiles-container .personal-details .title, body .container-fluid .profiles-container .personal-details .title {
-          font-weight: 500; }
         html .container-fluid .profiles-container .personal-details .demographic-table, body .container-fluid .profiles-container .personal-details .demographic-table {
           text-align: left; }
-          html .container-fluid .profiles-container .personal-details .demographic-table tbody tr td.title, body .container-fluid .profiles-container .personal-details .demographic-table tbody tr td.title {
-            font-weight: 500; }
-          html .container-fluid .profiles-container .personal-details .demographic-table tbody tr td.description, body .container-fluid .profiles-container .personal-details .demographic-table tbody tr td.description {
-            color: darkgrey; }
+          html .container-fluid .profiles-container .personal-details .demographic-table .row, body .container-fluid .profiles-container .personal-details .demographic-table .row {
+            border-top: 1px solid lightgrey;
+            padding: 5px; }
+            html .container-fluid .profiles-container .personal-details .demographic-table .row .title, body .container-fluid .profiles-container .personal-details .demographic-table .row .title {
+              font-weight: 500; }
+            html .container-fluid .profiles-container .personal-details .demographic-table .row .description, body .container-fluid .profiles-container .personal-details .demographic-table .row .description {
+              color: darkgrey; }
       html .container-fluid .profiles-container .about-me, body .container-fluid .profiles-container .about-me {
         margin-left: 20px;
         padding: 0px; }
