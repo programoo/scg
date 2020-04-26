@@ -6,20 +6,12 @@ html, body {
   background-color: lightcoral;
   padding: 0;
 
-  .container-fluid{
+  .container-fluid {
     padding: 0;
     @import 'header';
 
-    .container {
-      padding: 60px;
-      padding-bottom: 0px;
-      text-align: center;
-      overflow: scroll;
-      max-height: 910px;
-
-      @import 'directions';
-      @import 'profiles';
-    }
+    @import 'directions';
+    @import 'profiles';
 
     @import 'footer';
   }

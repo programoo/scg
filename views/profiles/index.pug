@@ -1,12 +1,21 @@
 extends ../layout
 block content
-    .container
-        .personal-details.col-6
-            p personal details
-        .about-me.col-6
+    .profiles-container.d-flex
+        .personal-details.col-4
+            p PERSONAL DETAILS
+            img(src='images/avatar.jpg' width="100%")
+
+            table.table.table-borderless.demographic-table
+                tbody
+                    tr
+                        td.title NAME
+                        td.description Prakarn Wongsanit
+                    tr
+                        td.title AGE
+                        td.description 30
+                    tr
+                        td.title LOCATION
+                        td.description Bangkok
+
+        .about-me.col-8
             p about me
-
-
-
-        h5 Welcome To My Best Code
-        p.test-writing-in-full Please Show me
