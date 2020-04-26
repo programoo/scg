@@ -26,7 +26,7 @@ app.use('/', routes);
 app.use('/profiles', profiles);
 app.use('/directions', directions);
 
-/////////////////////////////////////////////////////// APIs
+/////////////////////////////////////////////////////// APIs //////////////////////////////////////////////////////////
 app.use('/api/lines', apiLines);
 
 const port = process.env.PORT || 3000;
@@ -34,6 +34,7 @@ app.listen(port, () => {
     console.log('The application is running on localhost:3000');
 });
 
+/////////////////////////////////////////////////////// HANDLE ERROR WITH MIDDLEWARE //////////////////////////////////////////////////////////
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
     next(createError(404));
@@ -50,6 +51,8 @@ app.use((err, req, res, next) => {
     res.render('error');
 });
 
+
+/////////////////////////////////////////////////////// SEED DATABASE //////////////////////////////////////////////////////////
 const db = require('./db');
 const { Direction } = db.models;
 
