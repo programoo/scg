@@ -65,13 +65,24 @@ const sequelize = new Sequelize({
     }
 })();
 
+// Movie model
+// Movie model
+class Movie extends Sequelize.Model {}
+Movie.init({
+    title: Sequelize.STRING,
+}, { sequelize });
 
+(async () => {
+    await sequelize.sync({ force: true });
 
+    try {
+        // Instance of the Movie class represents a database row
+        const movie = await Movie.create();
 
-
-
-
-
+    } catch (error) {
+        console.error('Error connecting to the database: ', error);
+    }
+})();
 
 // const abc = require('./lib/abc');
 // const xyz = require('./lib/xyz');
