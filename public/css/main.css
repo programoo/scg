@@ -20,16 +20,24 @@ html, body {
       text-align: center;
       overflow: scroll;
       max-height: 910px; }
-      html .container-fluid .container h1, body .container-fluid .container h1 {
-        color: white; }
-      html .container-fluid .container .container-wrapper .list-group .list-group-item, body .container-fluid .container .container-wrapper .list-group .list-group-item {
+      html .container-fluid .container .directions-wrapper .list-group .list-group-item, body .container-fluid .container .directions-wrapper .list-group .list-group-item {
         text-align: left;
         background: white; }
-        html .container-fluid .container .container-wrapper .list-group .list-group-item .details .duration, body .container-fluid .container .container-wrapper .list-group .list-group-item .details .duration {
+        html .container-fluid .container .directions-wrapper .list-group .list-group-item .details .duration, body .container-fluid .container .directions-wrapper .list-group .list-group-item .details .duration {
           font-size: 16px;
           color: forestgreen;
           font-weight: 500; }
-        html .container-fluid .container .container-wrapper .list-group .list-group-item .details .distance, body .container-fluid .container .container-wrapper .list-group .list-group-item .details .distance {
+        html .container-fluid .container .directions-wrapper .list-group .list-group-item .details .distance, body .container-fluid .container .directions-wrapper .list-group .list-group-item .details .distance {
+          font-size: 13px;
+          color: gray; }
+      html .container-fluid .container .profiles-wrapper .list-group .list-group-item, body .container-fluid .container .profiles-wrapper .list-group .list-group-item {
+        text-align: left;
+        background: white; }
+        html .container-fluid .container .profiles-wrapper .list-group .list-group-item .details .duration, body .container-fluid .container .profiles-wrapper .list-group .list-group-item .details .duration {
+          font-size: 16px;
+          color: forestgreen;
+          font-weight: 500; }
+        html .container-fluid .container .profiles-wrapper .list-group .list-group-item .details .distance, body .container-fluid .container .profiles-wrapper .list-group .list-group-item .details .distance {
           font-size: 13px;
           color: gray; }
     html .container-fluid .footer, body .container-fluid .footer {

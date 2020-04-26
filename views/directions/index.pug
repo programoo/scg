@@ -8,7 +8,7 @@ block content
         h4 [SCG 100 years building] to [centralwOrld]
         h4 Travel Mode: #{mode}, Via #{route.summary}, Total Time #{route.legs[0].duration.text}, Total Distance #{route.legs[0].distance.text}
 
-        .container-wrapper.col-12.d-flex.justify-content-center
+        .directions.col-12.d-flex.justify-content-center
             ul.list-group.col-6
                 each step in route.legs[0].steps
                     li.list-group-item.d-flex
