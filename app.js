@@ -8,13 +8,6 @@ const directions = require('./controllers/directions');
 const apiLines = require('./controllers/api/lines');
 
 const app = express();
-// Development
-app.disable('view cache');
-app.set('etag', false)
-app.use((req, res, next) => {
-    res.set('Cache-Control', 'no-store')
-    next()
-})
 
 app.set('view engine', 'pug');
 app.use(express.static(__dirname + '/public'));
