@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 
 const sequelize = new Sequelize({
   dialect: 'sqlite',
-  storage: 'movies.db',
+  storage: 'development.db',
   logging: false
 });
 
@@ -21,5 +21,5 @@ const db = {
   }
 })();
 
-db.models.Movie = require('./models/movie.js')(sequelize);
+db.models.Direction = require('./models/direction.js')(sequelize);
 module.exports = db;

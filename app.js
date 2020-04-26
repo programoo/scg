@@ -51,21 +51,16 @@ app.use((err, req, res, next) => {
 });
 
 const db = require('./db');
-const { Movie } = db.models;
+const { Direction } = db.models;
 
 (async () => {
     await db.sequelize.sync({ force: true });
-
     try {
-        const movie = await Movie.create({
+        const direction = await Direction.create({
             title: 'Toy Story3',
+            sourceLat: 10.55555
         });
-        console.log(movie.toJSON());
-
-        const movie2 = await Movie.create({
-            title: 'The Incredibles'
-        });
-        console.log(movie2.toJSON());
+        console.log(direction.toJSON());
 
     } catch (error) {
         console.error('Error connecting to the database: ', error);
