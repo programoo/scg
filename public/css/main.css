@@ -7,6 +7,8 @@ html, body {
   padding: 0; }
   html .container-fluid, body .container-fluid {
     padding: 0; }
+    html .container-fluid .container, body .container-fluid .container {
+      padding-top: 60px; }
     html .container-fluid .navbar, body .container-fluid .navbar {
       height: 60px; }
       html .container-fluid .navbar .navbar-brand, body .container-fluid .navbar .navbar-brand {
