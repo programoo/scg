@@ -5,7 +5,7 @@ block variables
 
 block content
     .container.d-flex.flex-column.directions-container
-        h4 From SCG 100 years building to Central World.
+        h4 From #{direction.sourceTitle} to #{direction.destinationTitle}.
         h4 Travel Mode: #{mode}, Via #{route.summary}, Total Time #{route.legs[0].duration.text}, Total Distance #{route.legs[0].distance.text}
 
         .col-12.d-flex.justify-content-center

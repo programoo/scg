@@ -18,22 +18,22 @@ function asyncHandler(cb) {
     }
 }
 
-async function getData() {
-    const direction = await Direction.findOne();
+async function getData(direction) {
     mode = 'driving'
-
     const url = `https://maps.googleapis.com/maps/api/directions/json?mode=${mode}&origin=${direction.sourceLat},${direction.sourceLng}&destination=${direction.destinationLat},${direction.destinationLng}&key=${GOOGLE_API_KEY}`
     const response = await axios.get(url);
     return response
 }
 
 router.get('/', asyncHandler(async (req, res) => {
-    const myRoutes = await getData();
+    const direction = await Direction.findOne();
+    const myRoutes = await getData(direction);
     const route = myRoutes.data.routes[0];
 
     res.render('directions/index', {
         queryString: req.query,
         mode: 'driving',
+        direction: direction,
         route: route
     });
 }))
