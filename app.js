@@ -29,11 +29,6 @@ app.use('/directions', directions);
 /////////////////////////////////////////////////////// APIs //////////////////////////////////////////////////////////
 app.use('/api/lines', apiLines);
 
-const port = process.env.PORT || 3000;
-app.listen(port, () => {
-    console.log('The application is running on localhost:3000');
-});
-
 /////////////////////////////////////////////////////// HANDLE ERROR WITH MIDDLEWARE //////////////////////////////////////////////////////////
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
@@ -51,17 +46,21 @@ app.use((err, req, res, next) => {
     res.render('error');
 });
 
-
 /////////////////////////////////////////////////////// SEED DATABASE //////////////////////////////////////////////////////////
 const db = require('./db');
-const { Direction } = db.models;
+const {Direction} = db.models;
 
 (async () => {
-    await db.sequelize.sync({ force: true });
+    await db.sequelize.sync({force: true});
     try {
         const direction = await Direction.create({
-            title: 'Toy Story3',
-            sourceLat: 10.55555
+            sourceTitle: 'SCG 100 years building',
+            destinationTitle: 'Central World',
+            sourceLat: 10.55555,
+            sourceLat: 13.8058793,
+            sourceLng: 100.5375317,
+            destinationLat: 13.7466304,
+            destinationLng: 100.5393351
         });
         console.log(direction.toJSON());
 
@@ -70,6 +69,12 @@ const { Direction } = db.models;
     }
 })();
 
+/////////////////////////////////////////////////////// START SERVER //////////////////////////////////////////////////////////
+
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+    console.log('The application is running on localhost:3000');
+});
 
 // const abc = require('./lib/abc');
 // const xyz = require('./lib/xyz');
