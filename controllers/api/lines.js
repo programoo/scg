@@ -28,7 +28,7 @@ router.post('/webhook', (req, res) => {
     } catch (error) {
         console.error(`Cannot parse json object: ${error.message}`);
         sendError(userId);
-        res.sendStatus(200)
+        res.sendStatus(500)
     }
 })
 

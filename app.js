@@ -7,7 +7,11 @@ const profiles = require('./controllers/profiles');
 const directions = require('./controllers/directions');
 const apiLines = require('./controllers/api/lines');
 
+const abc = require('./lib/abc');
+const xyz = require('./lib/xyz');
+
 const app = express();
+
 
 app.set('view engine', 'pug');
 app.use(express.static(__dirname + '/public'));
@@ -67,20 +71,13 @@ app.listen(port, () => {
     console.log('The application is running on localhost:3000');
 });
 
-// const abc = require('./lib/abc');
-// const xyz = require('./lib/xyz');
 
-// A = 21
-// A_B = 23
-// A_C = -21
-// const abcResult = abc.findBC(A, A_B, A_C)
-// console.dir(abcResult)
-//
-// const xyzResult = xyz.isString(['X', 'Y', '5', '9', '23', 'Z', "", null, undefined, 0]);
 
-// const modes = ['transit', 'driving', 'walking', 'bicycling'];
-//
-// modes.forEach(mode => {
-//     console.log(mode);
-//     direction.getDirection(mode)
-// });
+/////////////////////////////////////////////////////// BASIC CALCULATION //////////////////////////////////////////////////////////
+A = 21
+A_B = 23
+A_C = -21
+const abcResult = abc.findBC(A, A_B, A_C)
+console.dir(abcResult)
+
+const xyzResult = xyz.isString(['X', 'Y', '5', '9', '23', 'Z', "", null, undefined, 0]);
