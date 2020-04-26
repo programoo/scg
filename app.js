@@ -153,8 +153,8 @@ app.listen(port, () => {
 });
 
 // const direction = require('./api/direction');
-// const abc = require('./calculation/abc');
-// const xyz = require('./calculation/xyz');
+// const abc = require('./lib/abc');
+// const xyz = require('./lib/xyz');
 
 // A = 21
 // A_B = 23
