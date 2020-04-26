@@ -4,6 +4,7 @@ const express = require('express');
 const routes = require('./controllers/index');
 const profiles = require('./controllers/profiles');
 const directions = require('./controllers/directions');
+const apiLines = require('./controllers/api/lines');
 
 const app = express();
 // Development
@@ -25,6 +26,8 @@ app.use(bodyParser.json());
 app.use('/', routes);
 app.use('/profiles', profiles);
 app.use('/directions', directions);
+
+app.use('/api/lines', apiLines);
 
 //
 
