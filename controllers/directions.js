@@ -2,8 +2,10 @@ const express = require('express');
 const router = express.Router();
 
 const axios = require('axios').default;
-
 const GOOGLE_API_KEY = 'AIzaSyCrs4tHo0EfCYFaZ08FHvmNQYVMgF3RqBA';
+
+const db = require('../db');
+const { Direction } = db.models;
 
 /* Handler function to wrap each route. */
 function asyncHandler(cb) {
@@ -22,6 +24,10 @@ async function getData() {
     destinationLat = 13.7466304
     destinationLng = 100.5393351
     mode = 'driving'
+
+    const direction = await Direction.findOne();
+    console.log(direction.sourceLat);
+
 
     const url = `https://maps.googleapis.com/maps/api/directions/json?mode=${mode}&origin=${sourceLat},${sourceLng}&destination=${destinationLat},${destinationLng}&key=${GOOGLE_API_KEY}`
     const response = await axios.get(url);
