@@ -65,6 +65,15 @@ html, body {
         html .container-fluid .profiles-container .about-me .skills button.skill, body .container-fluid .profiles-container .about-me .skills button.skill {
           border-radius: 20px;
           margin: 3px; }
+        html .container-fluid .profiles-container .about-me .certifications, body .container-fluid .profiles-container .about-me .certifications {
+          text-align: left; }
+          html .container-fluid .profiles-container .about-me .certifications ul, body .container-fluid .profiles-container .about-me .certifications ul {
+            list-style-type: none; }
+            html .container-fluid .profiles-container .about-me .certifications ul li.name, body .container-fluid .profiles-container .about-me .certifications ul li.name {
+              font-weight: 500; }
+            html .container-fluid .profiles-container .about-me .certifications ul li.company, body .container-fluid .profiles-container .about-me .certifications ul li.company {
+              color: lightgrey;
+              font-size: 12px; }
         html .container-fluid .profiles-container .about-me .working-place, body .container-fluid .profiles-container .about-me .working-place {
           text-align: left; }
           html .container-fluid .profiles-container .about-me .working-place .period, body .container-fluid .profiles-container .about-me .working-place .period {
