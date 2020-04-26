@@ -40,6 +40,8 @@ html, body {
         padding: 0;
         background: white;
         margin: 0; }
+        html .container-fluid .profiles-container .personal-details .title, body .container-fluid .profiles-container .personal-details .title {
+          font-weight: 500; }
         html .container-fluid .profiles-container .personal-details .demographic-table, body .container-fluid .profiles-container .personal-details .demographic-table {
           text-align: left; }
           html .container-fluid .profiles-container .personal-details .demographic-table tbody tr td.title, body .container-fluid .profiles-container .personal-details .demographic-table tbody tr td.title {
