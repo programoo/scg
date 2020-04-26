@@ -48,6 +48,13 @@ html, body {
             font-weight: 500; }
           html .container-fluid .profiles-container .personal-details .demographic-table tbody tr td.description, body .container-fluid .profiles-container .personal-details .demographic-table tbody tr td.description {
             color: darkgrey; }
+      html .container-fluid .profiles-container .about-me, body .container-fluid .profiles-container .about-me {
+        margin-left: 20px;
+        padding: 0px; }
+        html .container-fluid .profiles-container .about-me > div, body .container-fluid .profiles-container .about-me > div {
+          margin: 0;
+          margin-bottom: 2px;
+          background: white; }
     html .container-fluid .footer, body .container-fluid .footer {
       position: absolute;
       text-align: center;

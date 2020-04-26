@@ -10,7 +10,7 @@
     background: white;
     margin: 0;
 
-    .title{
+    .title {
       font-weight: 500;
     }
 
@@ -24,7 +24,7 @@
               font-weight: 500;
             }
 
-            &.description{
+            &.description {
               color: darkgrey;
             }
           }
@@ -34,6 +34,14 @@
   }
 
   .about-me {
+    margin-left: 20px;
+    padding: 0px;
+
+    > div {
+      margin: 0;
+      margin-bottom: 2px;
+      background: white;
+    }
 
   }
 }
