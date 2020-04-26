@@ -16,7 +16,7 @@ app.use((req, res, next) => {
 
 
 app.set('view engine', 'pug');
-app.use('/css', express.static('css'))
+//app.use('/css', express.static('css'))
 
 app.use(express.static(__dirname + '/public'));
 

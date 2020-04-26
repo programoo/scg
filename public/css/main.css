@@ -1,61 +1,40 @@
 html, body {
-    width: 100%;
-    height: 100%;
-    font-size: 14px !important;
-    background: black;
-    background-color: lightcoral;
-    padding: 0;
-}
-
-html .container-fluid, body .container-fluid {
-    padding: 0;
-}
-
-html .container-fluid .navbar .test-compiling, body .container-fluid .navbar .test-compiling {
-    background: green;
-}
-
-html .container-fluid .navbar .navbar-brand, body .container-fluid .navbar .navbar-brand {
-    background: green;
-    font-weight: bold;
-    color: white;
-    padding: 5px;
-    background: red;
-}
-
-html .container-fluid #container, body .container-fluid #container {
-    margin-top: 49px;
-    text-align: center;
-    height: 860px;
-    overflow: scroll;
-}
-
-html .container-fluid #container h1, body .container-fluid #container h1 {
-    color: white;
-}
-
-html .container-fluid #container .list-group .list-group-item, body .container-fluid #container .list-group .list-group-item {
-    text-align: left;
-    background: white;
-}
-
-html .container-fluid #container .list-group .list-group-item .details .duration, body .container-fluid #container .list-group .list-group-item .details .duration {
-    font-size: 16px;
-    color: forestgreen;
-    font-weight: 500;
-}
-
-html .container-fluid #container .list-group .list-group-item .details .distance, body .container-fluid #container .list-group .list-group-item .details .distance {
-    font-size: 13px;
-    color: gray;
-}
-
-html .container-fluid .footer, body .container-fluid .footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: red;
-    color: white;
-    text-align: center;
-}
+  width: 100%;
+  height: 100%;
+  font-size: 14px !important;
+  background: black;
+  background-color: lightcoral;
+  padding: 0; }
+  html .container-fluid, body .container-fluid {
+    padding: 0; }
+    html .container-fluid .navbar .navbar-brand, body .container-fluid .navbar .navbar-brand {
+      background: green;
+      font-weight: bold;
+      color: white;
+      padding: 5px;
+      background: red; }
+    html .container-fluid #container, body .container-fluid #container {
+      margin-top: 49px;
+      text-align: center;
+      height: 860px;
+      overflow: scroll; }
+      html .container-fluid #container h1, body .container-fluid #container h1 {
+        color: white; }
+      html .container-fluid #container .list-group .list-group-item, body .container-fluid #container .list-group .list-group-item {
+        text-align: left;
+        background: white; }
+        html .container-fluid #container .list-group .list-group-item .details .duration, body .container-fluid #container .list-group .list-group-item .details .duration {
+          font-size: 16px;
+          color: forestgreen;
+          font-weight: 500; }
+        html .container-fluid #container .list-group .list-group-item .details .distance, body .container-fluid #container .list-group .list-group-item .details .distance {
+          font-size: 13px;
+          color: gray; }
+    html .container-fluid .footer, body .container-fluid .footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: red;
+      color: white;
+      text-align: center; }
