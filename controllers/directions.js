@@ -4,6 +4,17 @@ const router = express.Router();
 const request = require('request');
 const GOOGLE_API_KEY = 'AIzaSyCrs4tHo0EfCYFaZ08FHvmNQYVMgF3RqBA';
 
+/* Handler function to wrap each route. */
+function asyncHandler(cb) {
+    return async (req, res, next) => {
+        try {
+            await cb(req, res, next)
+        } catch (error) {
+            res.status(500).send(error);
+        }
+    }
+}
+
 function getDirection(mode, response, queryString) {
     sourceLat = 13.8058793
     sourceLng = 100.5375317
@@ -31,10 +42,10 @@ function getDirection(mode, response, queryString) {
     });
 }
 
-router.get('/', (req, res) => {
+router.get('/', asyncHandler(async (req, res) => {
     console.log(req.query);
     const modes = ['driving'];// Change and compare mode, driving, walking and transit
     getDirection('driving', res, req.query) // null;
-})
+}))
 
 module.exports = router;
