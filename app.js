@@ -62,8 +62,6 @@ const {Direction} = db.models;
             destinationLat: 13.7466304,
             destinationLng: 100.5393351
         });
-        console.log(direction.toJSON());
-
     } catch (error) {
         console.error('Error connecting to the database: ', error);
     }
